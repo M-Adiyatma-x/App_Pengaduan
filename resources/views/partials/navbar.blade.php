@@ -9,7 +9,25 @@
           <a class="nav-link {{ ($title === 'Home') ? 'active' : '' }}" href="/">Home</a>
           <a class="nav-link {{ ($title === 'About') ? 'active' : '' }}" href="/about">About</a>
           <a class="nav-link" href="#">Statistic</a>
-          <a class="nav-link {{ ($title === 'Login') ? 'active' : '' }}" href="/login">Login</a>
+          @auth
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Welcome back, {{ auth()->user()->name }}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-window-reverse"></i>Dashboard</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <form action="/logout" method="post">
+                  @csrf
+                  <button type="submit" class="dropdown-item">
+                    <i class="bi bi-box-arrow-right"></i>Log out</li>
+            </ul>
+          </li> 
+          @else
+          <a class="nav-link {{ ($title === 'Login') ? 'active' : '' }}" href="/login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+          @endauth
+
         </div>
       </div>
     </div>

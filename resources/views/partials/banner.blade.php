@@ -23,7 +23,7 @@
 <div class="container-fluid banner" style="background-image: url('../../img/bg.jpg')">
 <p class="judul"> Website Pengaduan dan Aspirasi Mahasiswa</p>
 <p class="content"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem voluptatum ullam maiores magni recusandae suscipit voluptatem quaerat, soluta excepturi odit. Deserunt eaque eius, nostrum ducimus quisquam porro natus doloribus dolorum tempora vel soluta obcaecati cumque laudantium quasi quae ipsum culpa?</p>
-<center> <a class="btn-solid-lg page-scroll " href="sign-up.html">LOGIN</a></center>
+<center> <a class="btn-solid-lg page-scroll " href="/login">LOGIN</a></center>
 </div>
 
 <!-- Header -->
