@@ -23,10 +23,11 @@
                    <p>You don't have a password? Then please <a class="white" href="sign-up.html">Sign Up</a></p> 
                     <!-- Sign Up Form -->
                     <div class="form-container">
-                        <form id="logInForm" data-toggle="validator" data-focus="false">
+                        <form action="/login" method="POST" id="logInForm" data-toggle="validator" data-focus="false">
+                            @csrf
                             <div class="form-group">
-                                <input type="email" class="form-control-input" id="lemail" required>
-                                <label class="label-control" for="lemail">Email</label>
+                                <input type="email" name="email" class="form-control-input" id="email" placeholder="example@domain.com" autofocus>
+                                <label class="label-control" for="email"></label>
                                 <div class="help-block with-errors"></div>
                             </div>
                             <div class="form-group">

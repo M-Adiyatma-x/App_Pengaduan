@@ -34,10 +34,10 @@
                  <!--  <p>You don't have a password? Then please <a class="white" href="sign-up.html">Sign Up</a></p> 
                      Sign Up Form -->
                     <div class="form-container">
-                        <form action="/login" method="post">
+                        <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group">
-                                <input type="email" name="email" class="form-control-input @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" autofocus required value="{{ old('email') }}">
+                                <input type="email" name="email" class="form-control-input @error('email') is-invalid @enderror" id="email" autofocus required value="{{ old('email') }}">
                                 <label class="label-control" for="email">Email</label>
                                 @error('email')
                                 <div class="invalid-feedback">

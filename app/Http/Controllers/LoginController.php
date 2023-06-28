@@ -5,9 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class LoginController extends Controller
+
+class LoginController
 {
+
+    // public function __construct()
+    // {
+    //     $this->middleware('guest')->except('logout');
+    // }
     public function index()
     {
         return view('login.index', 
@@ -16,19 +25,48 @@ class LoginController extends Controller
         ]);
     }
 
-    public function authenticate(Request $request)
+    public function login(Request $request)
     {
-        $credential = $request->validate
-        ([
-                'email'     =>  'required|email:dns',
-                'password'  =>  'required'
+        $input = $request->all();
+        $request->validate( 
+        [
+            'email' => 'required|email',
+            'password' => 'required',
         ]);
 
-        if(Auth::attempt($credential))
+        if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
-            $request->session()->regenerate();
-            return  redirect()->intended('/dashboard'); 
-            
+            if (auth()->user()->type == 'superadmin') 
+            {
+                return redirect()->route('superadmin.home');
+            }
+            else if (auth()->user()->type == 'kemahasiswaan') 
+            {
+                return redirect()->route('kemahasiswaan.home');
+            }
+            else if (auth()->user()->type == 'akademik') {
+
+                return redirect()->route('akademik.home');
+
+            }
+            else if (auth()->user()->type == 'kamsisdal') {
+
+                return redirect()->route('kamsisdal.home');
+
+            }
+            else if (auth()->user()->type == 'sarpras') {
+
+                return redirect()->route('sarpras.home');
+
+            }
+            else if (auth()->user()->type == 'direksi') {
+
+                return redirect()->route('direksi.home');
+
+            }
+            else{
+                return redirect()->route('mhs.db');
+            }
         }
         return back()->with('loginError','Gagal Login!');
      }

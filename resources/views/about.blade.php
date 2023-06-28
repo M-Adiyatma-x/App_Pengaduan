@@ -36,7 +36,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="breadcrumbs">
-                            <a href="index.html">Home</a><i class="fa fa-angle-double-right"></i><span>About</span>
+                            <a href="/">Home</a><i class="fa fa-angle-double-right"></i><span>About</span>
                         </div> <!-- end of breadcrumbs -->
                     </div> <!-- end of col -->
                 </div> <!-- end of row -->

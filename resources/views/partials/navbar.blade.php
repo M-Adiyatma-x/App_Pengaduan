@@ -8,7 +8,7 @@
         <div class="navbar-nav ms-auto">
           <a class="nav-link {{ ($title === 'Home') ? 'active' : '' }}" href="/">Home</a>
           <a class="nav-link {{ ($title === 'About') ? 'active' : '' }}" href="/about">About</a>
-          <a class="nav-link" href="#">Statistic</a>
+          <a class="nav-link" {{ ($title === 'Statistik') ? 'active' : '' }}href="/statistic">Statistic</a>
           @auth
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -18,7 +18,7 @@
               <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-layout-text-window-reverse"></i>Dashboard</a></li>
               <li><hr class="dropdown-divider"></li>
               <li>
-                <form action="/logout" method="post">
+                <form action="/logout" method="get">
                   @csrf
                   <button type="submit" class="dropdown-item">
                     <i class="bi bi-box-arrow-right"></i>Log out</li>
